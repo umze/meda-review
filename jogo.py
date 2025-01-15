@@ -285,19 +285,76 @@ while acertou == 0:
     else:
         erros = erros + 1
         input("Resposta inválida!")
+
+# Jogo 6
+
+acertou = 0
+while acertou == 0:
+    os.system("cls")
+    print(f"{color['yellow']}JOGO 6{color['reset']}")
+    print(f"Você possui {color['green']}{pontos} pontos{color['reset']}.")
+    print("")
+    print("Você consegue interagir com o jogo na caixa de resposta.")
+    print("---------------------------------------------------------")
+    print("Digite um número de 1 a 3 para abrir a review")
+    print("Digite 'dica' para mostrar uma dica")
+    print("Digite 'desistir' para pular")
+    print("---------------------------------------------------------")
+    print("")
+    jogo = input("R: ")
+    print("")
+    if jogo == "1":
+        os.system("cd reviews/jogo6 && 1.png")
+    elif jogo == "2":
+        os.system("cd reviews/jogo6 && 2.png")
+    elif jogo == "3":
+        os.system("cd reviews/jogo6 && 3.png")
+    elif jogo == "Beat Saber":
+        acertou = 1
+        acertos = acertos + 1
+        pontos = pontos + 1
+        os.system("cd reviews/jogo6 && jogo.png")
+        input("Você acertou!")
+    elif jogo == "dica" or jogo == "Dica":
+        if pontos >= 1:
+            dicas = dicas + 1
+            pontos = pontos - 1
+            input("Esse é um jogo de RV (Realidade Virtual)")
+        else:
+            input("Você não tem pontos para adquirir uma dica")
+    elif jogo == "desistir" or jogo == "Desistir":
+        os.system("cd reviews/jogo6 && jogo.png")
+        input(f"O jogo era {color['blue']}Beat Saber{color['reset']}.")
+        acertou = 1
+        desistiu = desistiu + 1
+    else:
+        erros = erros + 1
+        input("Resposta inválida!")
     
 os.system("cls")
 print(f"{color['blue']}Você finalizou o jogo!")
-print("")
+time.sleep(1)
+print(f"{color['cian']}")
+time.sleep(0.3)
 print("Resultado:")
+time.sleep(0.3)
 print("====================")
+time.sleep(0.3)
 print(f"{color['red']}Erros: {erros}")
+time.sleep(0.3)
 print(f"{color['green']}Acertos: {acertos}")
+time.sleep(0.3)
 print(f"{color['yellow']}Dicas: {dicas}")
+time.sleep(0.3)
 print(f"{color['magenta']}Desistiu: {desistiu}")
+time.sleep(0.3)
 print("")
+time.sleep(0.3)
 print(f"{color['reset']}Total de pontos: {color['cian']}{pontos}")
+time.sleep(0.3)
 print("====================")
+time.sleep(0.3)
 print(f"{color['reset']}")
+time.sleep(0.3)
 input("Pressione ENTER para fechar o jogo")
 exit()
