@@ -50,17 +50,24 @@ input(f"{color['green']}Fácil{color['reset']} = 1 ponto |{color['yellow']} Méd
 input(f"A cor do nível indica a {color['red']}difículdade{color['reset']}")
 input(f"Você tem {color['green']}3 reviews{color['reset']} para analizar de cada jogo")
 input(f"E deve digitar {color['red']}exatamente {color['reset']}o {color['cian']}nome do jogo{color['reset']}, do jeito que exibe no{color['blue']} Steam{color['reset']}")
-input(f"Você começa com {color['blue']}10 pontos{color['reset']}.")
+input(f"Você começa com {color['blue']}1 ponto{color['reset']}.")
 input(f"Então vamos começar {node}!")
-pontos = 10
+
+pontos = 1
 acertou = 0
+
+# Estatistica
+acertos = 0
+erros = 0
+desistiu = 0
+dicas = 0
 
 # Jogo 1
 
 while acertou == 0:
     os.system("cls")
     print(f"{color['green']}JOGO 1{color['reset']}")
-    print(f"Você possui {color['green']}{pontos} pontos{color['reset']}.")
+    print(f"Você possui {color['green']}{pontos} ponto{color['reset']}.")
     print("")
     print("Você consegue interagir com o jogo na caixa de resposta.")
     print("---------------------------------------------------------")
@@ -82,18 +89,22 @@ while acertou == 0:
         pontos = pontos + 1
         os.system("cd reviews/jogo1 && jogo.png")
         input("Você acertou!")
+        acertos = acertos + 1
     elif jogo == "dica" or jogo == "Dica":
         if pontos >= 1:
             pontos = pontos - 1
             input("Jogo coop produzido pela EA e Hazelight Studios. Essa é a formatação do jogo * *** ***")
         else:
             input("Você não tem pontos para adquirir uma dica")
+            dicas = dicas + 1
     elif jogo == "desistir" or jogo == "Desistir":
         os.system("cd reviews/jogo1 && jogo.png")
         input(f"O jogo era {color['blue']}A Way Out{color['reset']}.")
         acertou = 1
+        desistiu = desistiu + 1
     else:
         input("Resposta inválida!")
+        erros = erros + 1
 
 # Jogo 2
 
@@ -123,19 +134,23 @@ while acertou == 0:
         pontos = pontos + 3
         os.system("cd reviews/jogo2 && jogo.png")
         input("Você acertou!")
+        acertos = acertos + 1
     elif jogo == "dica" or jogo == "Dica":
         if pontos >= 1:
             pontos = pontos - 1
             input("Jogo indie de roleta russa feito por uma pessoa.")
+            dicas = dicas + 1
         else:
             input("Você não tem pontos para adquirir uma dica")
     elif jogo == "desistir" or jogo == "Desistir":
         os.system("cd reviews/jogo2 && jogo.png")
         input(f"O jogo era {color['blue']}Buckshot Roulette{color['reset']}.")
         acertou = 1
+        desistiu = desistiu + 1
     else:
         input("Resposta inválida!")
-
+        erros = erros + 1
+        
 # Jogo 3
 
 acertou = 0
@@ -161,6 +176,7 @@ while acertou == 0:
         os.system("cd reviews/jogo3 && 3.png")
     elif jogo == "KinitoPET":
         acertou = 1
+        acertos = acertos + 1
         pontos = pontos + 2
         os.system("cd reviews/jogo3 && jogo.png")
         input("Você acertou!")
@@ -168,14 +184,17 @@ while acertou == 0:
         if pontos >= 1:
             pontos = pontos - 1
             input("É um jogo de terror psicológico que quebra a quarta parede.")
+            dicas = dicas + 1
         else:
             input("Você não tem pontos para adquirir uma dica")
     elif jogo == "desistir" or jogo == "Desistir":
         os.system("cd reviews/jogo3 && jogo.png")
         input(f"O jogo era {color['blue']}KinitoPET{color['reset']}.")
+        desistiu = desistiu + 1
         acertou = 1
     else:
         input("Resposta inválida!")
+        erros = erros + 1
 
 # Jogo 4
 
@@ -203,11 +222,13 @@ while acertou == 0:
     elif jogo == "Ultimate Chicken Horse":
         acertou = 1
         pontos = pontos + 1
+        acertos = acertos + 1
         os.system("cd reviews/jogo4 && jogo.png")
         input("Você acertou!")
     elif jogo == "dica" or jogo == "Dica":
         if pontos >= 1:
             pontos = pontos - 1
+            dicas = dicas + 1
             input("É um jogo competitivo onde você cria o caminho para finalizar a fase")
         else:
             input("Você não tem pontos para adquirir uma dica")
@@ -215,15 +236,17 @@ while acertou == 0:
         os.system("cd reviews/jogo4 && jogo.png")
         input(f"O jogo era {color['blue']}Ultimate Chicken Horse{color['reset']}.")
         acertou = 1
+        desistiu = desistiu + 1
     else:
         input("Resposta inválida!")
+        erros = erros + 1
 
 # Jogo 5
 
 acertou = 0
 while acertou == 0:
     os.system("cls")
-    print(f"{color['yellow']}JOGO 1{color['reset']}")
+    print(f"{color['yellow']}JOGO 5{color['reset']}")
     print(f"Você possui {color['green']}{pontos} pontos{color['reset']}.")
     print("")
     print("Você consegue interagir com o jogo na caixa de resposta.")
@@ -243,11 +266,13 @@ while acertou == 0:
         os.system("cd reviews/jogo5 && 3.png")
     elif jogo == "Detroit: Become Human":
         acertou = 1
+        acertos = acertos + 1
         pontos = pontos + 1
         os.system("cd reviews/jogo5 && jogo.png")
         input("Você acertou!")
     elif jogo == "dica" or jogo == "Dica":
         if pontos >= 1:
+            dicas = dicas + 1
             pontos = pontos - 1
             input("Jogo de Androides que você faz sua própria história")
         else:
@@ -256,7 +281,23 @@ while acertou == 0:
         os.system("cd reviews/jogo5 && jogo.png")
         input(f"O jogo era {color['blue']}Detroit: Become Human{color['reset']}.")
         acertou = 1
+        desistiu = desistiu + 1
     else:
+        erros = erros + 1
         input("Resposta inválida!")
-
+    
+os.system("cls")
+print(f"{color['blue']}Você finalizou o jogo!")
+print("")
+print("Resultado:")
+print("====================")
+print(f"{color['red']}Erros: {erros}")
+print(f"{color['green']}Acertos: {acertos}")
+print(f"{color['yellow']}Dicas: {dicas}")
+print(f"{color['magenta']}Desistiu: {desistiu}")
+print("")
+print(f"{color['reset']}Total de pontos: {color['cian']}{pontos}")
+print("====================")
 print(f"{color['reset']}")
+input("Pressione ENTER para fechar o jogo")
+exit()
