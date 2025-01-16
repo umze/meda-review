@@ -330,7 +330,97 @@ while acertou == 0:
     else:
         erros = erros + 1
         input("Resposta inválida!")
+
+# Jogo 7
+
+acertou = 0
+while acertou == 0:
+    os.system("cls")
+    print(f"{color['red']}JOGO 7{color['reset']}")
+    print(f"Você possui {color['green']}{pontos} pontos{color['reset']}.")
+    print("")
+    print("Você consegue interagir com o jogo na caixa de resposta.")
+    print("---------------------------------------------------------")
+    print("Digite um número de 1 a 3 para abrir a review")
+    print("Digite 'dica' para mostrar uma dica")
+    print("Digite 'desistir' para pular")
+    print("---------------------------------------------------------")
+    print("Advinhe a série desse jogo")
+    jogo = input("R: ")
+    print("")
+    if jogo == "1":
+        os.system("cd reviews/jogo7 && 1.png")
+    elif jogo == "2":
+        os.system("cd reviews/jogo7 && 2.png")
+    elif jogo == "3":
+        os.system("cd reviews/jogo7 && 3.png")
+    elif jogo == "Beat Saber":
+        acertou = 1
+        acertos = acertos + 1
+        pontos = pontos + 1
+        os.system("cd reviews/jogo7 && jogo.png")
+        input("Você acertou!")
+    elif jogo == "dica" or jogo == "Dica":
+        if pontos >= 1:
+            dicas = dicas + 1
+            pontos = pontos - 1
+            input("É uma série de jogos de terror, que cada jogo apresenta fatos reais.")
+        else:
+            input("Você não tem pontos para adquirir uma dica")
+    elif jogo == "desistir" or jogo == "Desistir":
+        os.system("cd reviews/jogo7 && jogo.png")
+        input(f"O jogo era {color['blue']}Fears to Fathom - Ironbark Lookout{color['reset']}.")
+        acertou = 1
+        desistiu = desistiu + 1
+    else:
+        erros = erros + 1
+        input("Resposta inválida!")
     
+# Jogo 8
+
+acertou = 0
+while acertou == 0:
+    os.system("cls")
+    print(f"{color['yellow']}JOGO 6{color['reset']}")
+    print(f"Você possui {color['green']}{pontos} pontos{color['reset']}.")
+    print("")
+    print("Você consegue interagir com o jogo na caixa de resposta.")
+    print("---------------------------------------------------------")
+    print("Digite um número de 1 a 3 para abrir a review")
+    print("Digite 'dica' para mostrar uma dica")
+    print("Digite 'desistir' para pular")
+    print("---------------------------------------------------------")
+    print("")
+    jogo = input("R: ")
+    print("")
+    if jogo == "1":
+        os.system("cd reviews/jogo8 && 1.png")
+    elif jogo == "2":
+        os.system("cd reviews/jogo8 && 2.png")
+    elif jogo == "3":
+        os.system("cd reviews/jogo8 && 3.png")
+    elif jogo == "Beat Saber":
+        acertou = 1
+        acertos = acertos + 1
+        pontos = pontos + 1
+        os.system("cd reviews/jogo8 && jogo.png")
+        input("Você acertou!")
+    elif jogo == "dica" or jogo == "Dica":
+        if pontos >= 1:
+            dicas = dicas + 1
+            pontos = pontos - 1
+            input("Você está preso na escola")
+        else:
+            input("Você não tem pontos para adquirir uma dica")
+    elif jogo == "desistir" or jogo == "Desistir":
+        os.system("cd reviews/jogo8 && jogo.png")
+        input(f"O jogo era {color['blue']}Baldi's Basics Classic Remastered{color['reset']}.")
+        acertou = 1
+        desistiu = desistiu + 1
+    else:
+        erros = erros + 1
+        input("Resposta inválida!")
+
 os.system("cls")
 print(f"{color['blue']}Você finalizou o jogo!")
 time.sleep(1)
